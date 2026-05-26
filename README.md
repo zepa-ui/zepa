@@ -1,4 +1,4 @@
-![Uploading Screenshot 2026-05-27 at 2.32.04 AM.png…]()
+<img width="1647" height="990" alt="Screenshot 2026-05-27 at 2 32 47 AM" src="https://github.com/user-attachments/assets/ab341916-bd15-4658-969d-854c76ea65e5" />
 
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
