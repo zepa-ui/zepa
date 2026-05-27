@@ -126,6 +126,12 @@
   }
 }
 
+html.preloading,
+html.preloading body {
+  overflow: hidden;
+  background: black;
+}
+
 /* Added noise texture overlay */
 .noise-overlay {
   position: fixed;

@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useRef } from "react"
+import Link from "next/link"
 import { motion } from "framer-motion"
 import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -8,8 +9,8 @@ import { GitHubLink } from "@/components/landing/github-link"
 
 const navItems = [
   { label: "Features", href: "#features" },
-  { label: "Pricing", href: "#pricing" },
-  { label: "Docs", href: "#docs" },
+  { label: "Components", href: "#components" },
+  { label: "Docs", href: "/docs" },
   { label: "Blog", href: "#blog" },
 ]
 
@@ -30,12 +31,13 @@ export function Navbar() {
         className="relative flex items-center justify-between px-4 py-3 rounded-full bg-zinc-900/40 backdrop-blur-md border border-zinc-800"
       >
         {/* Logo */}
-        <a href="#" className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-lg bg-white flex items-center justify-center">
-            <span className="text-zinc-950 font-bold text-sm">A</span>
-          </div>
-          <span className="font-semibold text-white hidden sm:block">Zepa UI</span>
-        </a>
+        <Link href="/" className="flex items-center">
+          <img
+            src="/zzepa.png"
+            alt="Zepa UI"
+            className="h-8 w-auto max-w-[140px] object-contain"
+          />
+        </Link>
 
         {/* Desktop Nav Items */}
         <div className="hidden md:flex items-center gap-1 relative">
