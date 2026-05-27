@@ -10,9 +10,9 @@ const manrope = Manrope({
 })
 
 export const metadata: Metadata = {
-  title: "Apex - Enterprise SaaS Platform",
-  description: "The modern platform for teams who ship fast. Built for scale, designed for speed.",
-    generator: 'v0.app'
+  title: "zepa UI - UI Components",
+  description: "The modern platform for UI components and libraries who ship fast. Built for scale, designed for speed.",
+  
 }
 
 export default function RootLayout({
@@ -21,7 +21,26 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" className="dark preloading" suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function () {
+                try {
+                  if (window.location.pathname === '/') {
+                    document.documentElement.classList.add('preloading');
+                  } else {
+                    document.documentElement.classList.remove('preloading');
+                  }
+                } catch (error) {
+                  document.documentElement.classList.remove('preloading');
+                }
+              })();
+            `,
+          }}
+        />
+      </head>
       <body className={`${manrope.variable} font-sans antialiased`}>
         <div className="noise-overlay" aria-hidden="true" />
         {children}

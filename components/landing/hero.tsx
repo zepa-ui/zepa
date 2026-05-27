@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion"
 import { ArrowRight } from "lucide-react"
+import UnicornScene from "unicornstudio-react"
 import { Button } from "@/components/ui/button"
 
 const avatars = [
@@ -9,7 +10,7 @@ const avatars = [
   "/professional-headshot-2.png",
   "/professional-headshot-3.png",
   "/professional-headshot-4.png",
-  "/professional-headshot-5.png",
+  "/sameer.jpeg",
 ]
 
 const textRevealVariants = {
@@ -18,7 +19,7 @@ const textRevealVariants = {
     y: 0,
     transition: {
       duration: 0.8,
-      ease: [0.22, 1, 0.36, 1],
+      ease: [0.22, 1, 0.36, 1] as const,
       delay: i * 0.1,
     },
   }),
@@ -27,13 +28,27 @@ const textRevealVariants = {
 export function Hero() {
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center px-4 pt-24 pb-16 overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-zinc-950 via-zinc-950 to-zinc-900 pointer-events-none" />
+      {/* Background scene */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute inset-0 bg-zinc-950" />
+        <div className="absolute inset-0 opacity-85 flex items-center justify-center">
+          <UnicornScene
+            projectId="tcG1K2JXES5pV3PGub42"
+            width="1440px"
+            height="1080px"
+            scale={1}
+            dpi={1.5}
+            sdkUrl="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v2.1.12/dist/unicornStudio.umd.js"
+          />
+        </div>
+
+        <div className="absolute inset-0 bg-gradient-to-b from-zinc-950/20 via-zinc-950/45 to-zinc-950" />
+      </div>
 
       {/* Subtle radial glow */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-zinc-800/20 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="relative z-10 max-w-5xl mx-auto text-center">
+      <div className="relative z-10 max-w-5xl mx-auto text-center translate-y-6 sm:translate-y-8 lg:translate-y-10">
         {/* Badge */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -126,7 +141,7 @@ export function Hero() {
             ))}
           </div>
           <p className="text-sm text-zinc-500">
-            Trusted by <span className="text-zinc-300 font-medium">2,000+</span> teams worldwide
+            Trusted by <span className="text-zinc-300 font-medium">2,000+</span> Developers worldwide
           </p>
         </motion.div>
       </div>
