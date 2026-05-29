@@ -9,7 +9,7 @@ import { GitHubLink } from "@/components/landing/github-link"
 
 const navItems = [
   { label: "Features", href: "#features" },
-  { label: "Components", href: "#components" },
+  { label: "Components", href: "components" },
   { label: "Docs", href: "/docs" },
   { label: "Blog", href: "#blog" },
 ]
