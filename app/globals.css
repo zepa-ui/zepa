@@ -1,6 +1,14 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+@source "../components";
+@source "../app";
+
+@utility w-sidebar {
+  width: 260px;
+  min-width: 260px;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 :root {
