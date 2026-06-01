@@ -2,8 +2,10 @@
 
 import { useState } from "react"
 
+import type { ComponentStats } from "@/lib/stats/types"
 import { cn } from "@/lib/utils"
 
+import { DemoStats } from "./demo-stats"
 import { DemoToolbar, type DemoTheme } from "./demo-toolbar"
 import { RegistryDemo } from "./registry-demo"
 
@@ -11,12 +13,20 @@ interface ComponentDemoProps {
   slug: string
   fullscreen?: boolean
   showOpenInNewTab?: boolean
+  stats: ComponentStats
+  onLike: () => void
+  liking?: boolean
+  liked?: boolean
 }
 
 export function ComponentDemo({
   slug,
   fullscreen = false,
   showOpenInNewTab = true,
+  stats,
+  onLike,
+  liking = false,
+  liked = false,
 }: ComponentDemoProps) {
   const [theme, setTheme] = useState<DemoTheme>("dark")
   const [refreshKey, setRefreshKey] = useState(0)
@@ -40,6 +50,8 @@ export function ComponentDemo({
         onRefresh={() => setRefreshKey((key) => key + 1)}
         showOpenInNewTab={showOpenInNewTab}
       />
+
+      <DemoStats stats={stats} onLike={onLike} liking={liking} liked={liked} />
 
       <div
         className={cn(

@@ -7,6 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+    "build:registry": "tsx scripts/build-registry.ts",
+    "prebuild": "npm run build:registry",
     "test": "vitest --run",
     "test:watch": "vitest",
     "test:ui": "vitest --ui",
@@ -45,6 +47,7 @@
     "eslint-config-next": "16.2.6",
     "jsdom": "^27.0.1",
     "tailwindcss": "^4",
+    "tsx": "^4.22.4",
     "typescript": "^5",
     "vitest": "^3.2.6"
   }

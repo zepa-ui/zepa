@@ -1,9 +1,12 @@
 import { describe, it, expect } from "vitest"
+import { registryItems } from "@/content/registry/items"
 import { registryLoaders } from "@/content/registry/loaders"
 
 describe("Registry", () => {
-  it("should have loaders for all registered components", () => {
-    expect(Object.keys(registryLoaders).length).toBeGreaterThan(0)
+  it("should have loaders for every registry item", () => {
+    registryItems.forEach((item) => {
+      expect(registryLoaders[item.slug]).toBeDefined()
+    })
   })
 
   it("should have glsl-hills-hero registered", () => {
@@ -16,11 +19,10 @@ describe("Registry", () => {
     expect(typeof loader).toBe("function")
   })
 
-  it("should resolve component slugs correctly", () => {
-    const slugs = Object.keys(registryLoaders)
-    expect(slugs).toContain("glsl-hills-hero")
-    expect(slugs).toContain("placeholder-card")
-    expect(slugs).toContain("placeholder-button")
+  it("should resolve component slugs from items", () => {
+    const itemSlugs = registryItems.map((item) => item.slug)
+    const loaderSlugs = Object.keys(registryLoaders)
+    expect(loaderSlugs.sort()).toEqual(itemSlugs.sort())
   })
 
   it("should handle missing component gracefully", () => {

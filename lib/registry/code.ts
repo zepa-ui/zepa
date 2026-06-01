@@ -1,17 +1,12 @@
 import { readFile } from "fs/promises"
 import path from "path"
 
-const codeFiles: Record<string, string[]> = {
-  "glsl-hills-hero": [
-    "hero-sections/glsl-hills-hero/demo.tsx",
-    "hero-sections/glsl-hills-hero/ui/glsl-hills.tsx",
-  ],
-}
+import { codePaths } from "./code-paths"
 
 export async function getComponentCode(
   slug: string
 ): Promise<Record<string, string>> {
-  const files = codeFiles[slug]
+  const files = codePaths[slug]
   if (!files) return {}
 
   const base = path.join(process.cwd(), "content/registry")

@@ -11,9 +11,9 @@ describe("Component Metadata", () => {
     registryItems.forEach((item) => {
       expect(item).toHaveProperty("slug")
       expect(item).toHaveProperty("title")
-      expect(item).toHaveProperty("name")
       expect(item).toHaveProperty("description")
       expect(item).toHaveProperty("category")
+      expect(item).toHaveProperty("preview")
     })
   })
 
@@ -35,6 +35,7 @@ describe("Component Metadata", () => {
     expect(component).toBeDefined()
     expect(component?.title).toBe("GLSL Hills Hero")
     expect(component?.category).toBe("hero-sections")
+    expect(component?.github).toBe("vij-sameerb5")
   })
 
   it("should parse metadata correctly", () => {
@@ -43,5 +44,8 @@ describe("Component Metadata", () => {
     expect(typeof item.title).toBe("string")
     expect(typeof item.category).toBe("string")
     expect(Array.isArray(item.dependencies)).toBe(true)
+    if (item.github !== undefined) {
+      expect(typeof item.github).toBe("string")
+    }
   })
 })

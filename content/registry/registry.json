@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "zepa",
+  "homepage": "https://zepadesign.netlify.app",
+  "items": [
+    {
+      "slug": "glsl-hills-hero",
+      "title": "GLSL Hills Hero",
+      "category": "hero-sections",
+      "description": "Animated GLSL hills hero section powered by Three.js shaders.",
+      "github": "vij-sameerb5",
+      "tags": [
+        "hero",
+        "glsl",
+        "threejs",
+        "shader",
+        "animated"
+      ],
+      "installUrl": "https://zepadesign.netlify.app/r/glsl-hills-hero.json"
+    }
+  ]
+}
