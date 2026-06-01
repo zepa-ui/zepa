@@ -1,6 +1,6 @@
-import { registryItems } from "@/content/registry/items"
+import { registryItems, type RegistryItem } from "@/content/registry/items"
 
-export type RegistryItem = (typeof registryItems)[number]
+export type { RegistryItem }
 
 export function getRegistryItem(slug: string) {
   return registryItems.find((item) => item.slug === slug)

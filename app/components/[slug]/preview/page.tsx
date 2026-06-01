@@ -1,7 +1,8 @@
 import { notFound } from "next/navigation"
 
-import { ComponentDemo } from "@/components/showcase/component-demo"
+import { FullscreenDemo } from "@/components/showcase/fullscreen-demo"
 import { getAllSlugs, getRegistryItem } from "@/lib/registry/helpers"
+import { getMetaStats } from "@/lib/stats/meta-seeds"
 
 interface ComponentPreviewPageProps {
   params: Promise<{ slug: string }>
@@ -23,7 +24,7 @@ export default async function ComponentPreviewPage({
 
   return (
     <main className="min-h-screen bg-black">
-      <ComponentDemo slug={slug} fullscreen showOpenInNewTab={false} />
+      <FullscreenDemo slug={slug} initialStats={getMetaStats(slug)} />
     </main>
   )
 }

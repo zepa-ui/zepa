@@ -20,6 +20,9 @@
 # production
 /build
 
+# local component stats (views / likes / installs)
+/data/component-stats.json
+
 # misc
 .DS_Store
 *.pem

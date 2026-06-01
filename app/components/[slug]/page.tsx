@@ -1,9 +1,11 @@
+import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 
-import { ComponentDetail } from "@/components/showcase/component-detail"
+import { ComponentDetailClient } from "@/components/showcase/component-detail-client"
 import { getComponentCode } from "@/lib/registry/code"
 import { highlightCodeFiles } from "@/lib/registry/highlight"
 import { getAllSlugs, getRegistryItem } from "@/lib/registry/helpers"
+import { getMetaStats } from "@/lib/stats/meta-seeds"
 
 interface ComponentDetailPageProps {
   params: Promise<{ slug: string }>
@@ -11,6 +13,19 @@ interface ComponentDetailPageProps {
 
 export function generateStaticParams() {
   return getAllSlugs().map((slug) => ({ slug }))
+}
+
+export async function generateMetadata({
+  params,
+}: ComponentDetailPageProps): Promise<Metadata> {
+  const { slug } = await params
+  const item = getRegistryItem(slug)
+
+  if (!item) {
+    return { title: "Component" }
+  }
+
+  return { title: item.title }
 }
 
 export default async function ComponentDetailPage({
@@ -27,13 +42,14 @@ export default async function ComponentDetailPage({
   const code = await highlightCodeFiles(rawCode)
 
   return (
-    <ComponentDetail
+    <ComponentDetailClient
       slug={slug}
       title={item.title}
       description={item.description}
-      creator={item.creator}
+      github={item.github}
       dependencies={[...item.dependencies]}
       code={code}
+      initialStats={getMetaStats(slug)}
     />
   )
 }

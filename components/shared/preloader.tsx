@@ -89,7 +89,7 @@ export function Preloader({ onComplete }: PreloaderProps) {
             }}
             className="relative z-10 w-[320px] object-contain md:w-[420px]"
           >
-            <source src="/zepa.mp4" type="video/mp4" />
+            <source src="/ss.mp4" type="video/mp4" />
           </motion.video>
 
           {/* Bottom Fade */}

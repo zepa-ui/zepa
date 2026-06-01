@@ -2,30 +2,46 @@
 
 import Link from "next/link"
 import { useState } from "react"
-import { ArrowLeft, Check, CircleUser, Copy } from "lucide-react"
+import { ArrowLeft, Check, Copy } from "lucide-react"
 
 import { getInstallCommand } from "@/lib/registry/helpers"
 import type { HighlightedCodeFile } from "@/lib/registry/highlight"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 
+import type { ComponentStats } from "@/lib/stats/types"
+
 import { CodeBlock } from "./code-block"
 import { ComponentDemo } from "./component-demo"
 
-interface ComponentDetailProps {
+export interface ComponentDetailProps {
   slug: string
   title: string
   description: string
-  creator: string
+  github?: string
   dependencies: string[]
   code: Record<string, HighlightedCodeFile>
+  stats: ComponentStats
+  onLike: () => void
+  liking?: boolean
+  liked?: boolean
+  onInstallCopy?: () => void
 }
 
-function CopyButton({ value, label }: { value: string; label: string }) {
+function CopyButton({
+  value,
+  label,
+  onCopied,
+}: {
+  value: string
+  label: string
+  onCopied?: () => void
+}) {
   const [copied, setCopied] = useState(false)
 
   async function handleCopy() {
     await navigator.clipboard.writeText(value)
+    onCopied?.()
     setCopied(true)
     window.setTimeout(() => setCopied(false), 2000)
   }
@@ -52,11 +68,17 @@ export function ComponentDetail({
   slug,
   title,
   description,
-  creator,
+  github,
   dependencies,
   code,
+  stats,
+  onLike,
+  liking = false,
+  liked = false,
+  onInstallCopy,
 }: ComponentDetailProps) {
   const installCommand = getInstallCommand(dependencies)
+  const shadcnInstallCommand = `npx shadcn@latest add https://zepadesign.netlify.app/r/${slug}.json`
   const codeEntries = Object.entries(code)
   const defaultCodeKey = codeEntries[0]?.[0] ?? ""
   const [activeCodeKey, setActiveCodeKey] = useState(defaultCodeKey)
@@ -79,20 +101,56 @@ export function ComponentDetail({
             {description}
           </p>
 
-          {installCommand ? (
-            <section className="mt-8 space-y-3">
-              <h2 className="text-xs font-medium uppercase tracking-wider text-white/40">
-                Install
-              </h2>
-              <pre className="overflow-x-auto rounded-lg border border-white/10 bg-zinc-950 p-3 text-xs text-white/80">
-                {installCommand}
-              </pre>
-              <CopyButton value={installCommand} label="Copy command" />
-            </section>
-          ) : null}
+          <section className="mt-8 space-y-3">
+            <h2 className="text-xs font-medium uppercase tracking-wider text-white/40">
+              Install
+            </h2>
+            <p className="text-xs text-white/45">shadcn CLI</p>
+            <pre className="scrollbar-hidden overflow-x-auto rounded-lg border border-white/10 bg-zinc-950 p-3 text-xs text-white/80">
+              {shadcnInstallCommand}
+            </pre>
+            <CopyButton
+              value={shadcnInstallCommand}
+              label="Copy command"
+              onCopied={onInstallCopy}
+            />
+            {installCommand ? (
+              <>
+                <p className="pt-2 text-xs text-white/45">Dependencies</p>
+                <pre className="scrollbar-hidden overflow-x-auto rounded-lg border border-white/10 bg-zinc-950 p-3 text-xs text-white/80">
+                  {installCommand}
+                </pre>
+                <CopyButton value={installCommand} label="Copy npm install" />
+              </>
+            ) : null}
+          </section>
 
           {codeEntries.length > 0 ? (
             <section className="mt-8 space-y-3">
+              <p className="text-[15px] leading-snug">
+                {github ? (
+                  <a
+                    href={`https://github.com/${github}`}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-1.5 font-medium text-white/85 transition hover:text-white"
+                  >
+                    <img
+                      src="/git.png"
+                      alt=""
+                      width={16}
+                      height={16}
+                      className="size-4 shrink-0"
+                    />
+                    <span>
+                      GitHub: @{github.toLowerCase()}
+                    </span>
+                  </a>
+                ) : (
+                  <span className="font-medium text-white/80">Anonymous</span>
+                )}
+              </p>
+
               <h2 className="text-xs font-medium uppercase tracking-wider text-white/40">
                 Code
               </h2>
@@ -117,16 +175,6 @@ export function ComponentDetail({
                   )
                 })}
               </div>
-
-              <p className="flex items-center gap-2 text-sm text-white/50">
-                <CircleUser className="size-4 shrink-0 text-white/40" />
-                <span>
-                  Created by{" "}
-                  <span className="font-medium text-white/80">
-                    {creator.charAt(0).toUpperCase() + creator.slice(1)}
-                  </span>
-                </span>
-              </p>
 
               {activeCode ? (
                 <>
@@ -160,7 +208,13 @@ export function ComponentDetail({
           <p className="mb-4 text-xs font-medium uppercase tracking-wider text-white/40">
             Live demo
           </p>
-          <ComponentDemo slug={slug} />
+          <ComponentDemo
+            slug={slug}
+            stats={stats}
+            onLike={onLike}
+            liking={liking}
+            liked={liked}
+          />
         </section>
       </div>
     </main>

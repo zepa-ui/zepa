@@ -1,5 +1,5 @@
 export const meta = {
-  name: "glsl-hills-hero",
+  slug: "glsl-hills-hero",
 
   title: "GLSL Hills Hero",
 
@@ -11,9 +11,7 @@ export const meta = {
   preview:
     "/previews/hero-sections/glsl-hills-hero/preview.mov",
 
-  dependencies: [
-    "three",
-  ],
+  github: "vij-sameerb5",
 
   tags: [
     "hero",
@@ -23,7 +21,13 @@ export const meta = {
     "animated",
   ],
 
-  creator: "sameer",
+  dependencies: ["three"],
+
+  registryDependencies: [],
 
   version: 1,
-}
+
+  views: 44231,
+  likes: 312,
+  installs: 1240,
+} as const

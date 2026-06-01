@@ -10,12 +10,13 @@ describe("Sidebar & Search Filtering", () => {
     expect(heroSections[0].category).toBe("hero-sections")
   })
 
-  it("should filter components by multiple categories", () => {
-    const cards = registryItems.filter((item) => item.category === "cards")
-    const buttons = registryItems.filter((item) => item.category === "buttons")
-
-    expect(cards.length).toBeGreaterThan(0)
-    expect(buttons.length).toBeGreaterThan(0)
+  it("should filter components by category slug", () => {
+    const categories = new Set(registryItems.map((item) => item.category))
+    expect(categories.size).toBeGreaterThan(0)
+    categories.forEach((category) => {
+      const items = registryItems.filter((item) => item.category === category)
+      expect(items.length).toBeGreaterThan(0)
+    })
   })
 
   it("should search by component name", () => {

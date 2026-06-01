@@ -1,0 +1,101 @@
+"use client"
+
+import { useCallback, useEffect, useRef, useState } from "react"
+
+import type { ComponentStats } from "@/lib/stats/types"
+
+function likeSessionKey(slug: string) {
+  return `zepa:liked:${slug}`
+}
+
+function readLikedFromSession(slug: string) {
+  if (typeof window === "undefined") {
+    return false
+  }
+  return sessionStorage.getItem(likeSessionKey(slug)) === "1"
+}
+
+function isPageReload() {
+  if (typeof window === "undefined") {
+    return false
+  }
+
+  const entry = performance.getEntriesByType("navigation")[0] as
+    | PerformanceNavigationTiming
+    | undefined
+
+  return entry?.type === "reload"
+}
+
+interface UseComponentStatsOptions {
+  /** Count a view only on full browser refresh (not client navigation). */
+  trackViewOnReload?: boolean
+}
+
+export function useComponentStats(
+  slug: string,
+  initialStats: ComponentStats,
+  options?: UseComponentStatsOptions
+) {
+  const trackViewOnReload = options?.trackViewOnReload ?? false
+  const [stats, setStats] = useState<ComponentStats>(initialStats)
+  const [liking, setLiking] = useState(false)
+  const liked = readLikedFromSession(slug)
+  const viewRecorded = useRef(false)
+
+  const refreshStats = useCallback(async () => {
+    const response = await fetch(`/api/stats/${slug}`)
+    if (!response.ok) return
+    setStats((await response.json()) as ComponentStats)
+  }, [slug])
+
+  useEffect(() => {
+    async function load() {
+      await refreshStats()
+
+      if (!trackViewOnReload || !isPageReload() || viewRecorded.current) {
+        return
+      }
+
+      viewRecorded.current = true
+      const response = await fetch(`/api/view/${slug}`, { method: "POST" })
+      if (response.ok) {
+        setStats((await response.json()) as ComponentStats)
+      }
+    }
+
+    void load()
+  }, [slug, trackViewOnReload, refreshStats])
+
+  const like = useCallback(async () => {
+    if (readLikedFromSession(slug)) {
+      return
+    }
+
+    setLiking(true)
+    try {
+      const response = await fetch(`/api/like/${slug}`, { method: "POST" })
+      if (response.ok) {
+        setStats((await response.json()) as ComponentStats)
+        sessionStorage.setItem(likeSessionKey(slug), "1")
+      }
+    } finally {
+      setLiking(false)
+    }
+  }, [slug])
+
+  const recordInstall = useCallback(async () => {
+    const response = await fetch(`/api/install/${slug}`, { method: "POST" })
+    if (response.ok) {
+      setStats((await response.json()) as ComponentStats)
+    }
+  }, [slug])
+
+  return {
+    stats,
+    liking,
+    liked,
+    like,
+    recordInstall,
+  }
+}
