@@ -1,3 +1,5 @@
+"use client"
+
 import { GLSLHills } from "./ui/glsl-hills";
 
 export default function DemoOne() {
