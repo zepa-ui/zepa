@@ -1,20 +1,22 @@
 "use client"
 
+import Link from "next/link"
+
 interface ComponentPreviewProps {
+  slug: string
   title: string
   preview: string
-  onClick?: () => void
 }
 
 export function ComponentPreview({
+  slug,
   title,
   preview,
-  onClick,
 }: ComponentPreviewProps) {
   return (
-    <button
-      onClick={onClick}
-      className="group relative w-full overflow-hidden rounded-2xl border border-white/10"
+    <Link
+      href={`/components/${slug}`}
+      className="group relative block w-full overflow-hidden rounded-2xl border border-white/10"
     >
       <div className="aspect-video overflow-hidden bg-black">
         <video
@@ -34,6 +36,6 @@ export function ComponentPreview({
           {title}
         </div>
       </div>
-    </button>
+    </Link>
   )
 }
