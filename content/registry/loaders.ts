@@ -11,7 +11,13 @@ export const registryLoaders: Record<
     demo: () => Promise<DemoModule>
   }
 > = {
+  "dataanalytics-hero": {
+    demo: () => import("./hero-sections/dataanalytics-hero/demo"),
+  },
   "glsl-hills-hero": {
     demo: () => import("./hero-sections/glsl-hills-hero/demo"),
+  },
+  "new-hero": {
+    demo: () => import("./hero-sections/new-hero/demo"),
   },
 }
