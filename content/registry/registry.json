@@ -17,6 +17,21 @@
         "animated"
       ],
       "installUrl": "https://zepadesign.netlify.app/r/glsl-hills-hero.json"
+    },
+    {
+      "slug": "new-hero",
+      "title": "New Hero",
+      "category": "hero-sections",
+      "description": "Premium hero section with strong heading, CTA buttons, glow, and framed dashboard mockup.",
+      "github": "vij-sameerb5",
+      "tags": [
+        "hero",
+        "landing",
+        "cta",
+        "glow",
+        "mockup"
+      ],
+      "installUrl": "https://zepadesign.netlify.app/r/new-hero.json"
     }
   ]
 }

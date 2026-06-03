@@ -2,9 +2,11 @@
 // Run: npm run build:registry
 
 import { meta as heroSectionsGlslHillsHero } from "./hero-sections/glsl-hills-hero/meta"
+import { meta as heroSectionsNewHero } from "./hero-sections/new-hero/meta"
 
 export const registryItems = [
   heroSectionsGlslHillsHero,
+  heroSectionsNewHero,
 ] as const
 
 export type RegistryItem = (typeof registryItems)[number]

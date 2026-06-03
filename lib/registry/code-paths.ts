@@ -6,4 +6,11 @@ export const codePaths: Record<string, string[]> = {
     "hero-sections/glsl-hills-hero/demo.tsx",
     "hero-sections/glsl-hills-hero/ui/glsl-hills.tsx",
   ],
+  "new-hero": [
+    "hero-sections/new-hero/demo.tsx",
+    "hero-sections/new-hero/ui/badge.tsx",
+    "hero-sections/new-hero/ui/button.tsx",
+    "hero-sections/new-hero/ui/glow.tsx",
+    "hero-sections/new-hero/ui/mockup.tsx",
+  ],
 }

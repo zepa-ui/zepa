@@ -14,4 +14,7 @@ export const registryLoaders: Record<
   "glsl-hills-hero": {
     demo: () => import("./hero-sections/glsl-hills-hero/demo"),
   },
+  "new-hero": {
+    demo: () => import("./hero-sections/new-hero/demo"),
+  },
 }
