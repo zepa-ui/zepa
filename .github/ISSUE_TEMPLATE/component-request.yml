@@ -1,0 +1,64 @@
+name: Component Request
+description: Request a new component for the registry
+title: "[Component]: "
+labels: ["component-request"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Request a component you'd like added to Zepa UI. Include references if possible.
+
+  - type: input
+    id: name
+    attributes:
+      label: Component name
+      placeholder: e.g. Gradient Mesh Hero
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      options:
+        - hero-sections
+        - cards
+        - buttons
+        - other
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: What should it look like / do?
+    validations:
+      required: true
+
+  - type: input
+    id: reference
+    attributes:
+      label: Reference link
+      description: Figma, site, or repo link (optional)
+      placeholder: https://
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: features
+    attributes:
+      label: Features
+      options:
+        - label: Animation
+        - label: Three.js / WebGL
+        - label: Video background
+        - label: Dark mode
+        - label: Mobile responsive
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Additional notes
+    validations:
+      required: false

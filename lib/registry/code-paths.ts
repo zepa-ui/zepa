@@ -2,6 +2,9 @@
 // Run: npm run build:registry
 
 export const codePaths: Record<string, string[]> = {
+  "dataanalytics-hero": [
+    "hero-sections/dataanalytics-hero/demo.tsx",
+  ],
   "glsl-hills-hero": [
     "hero-sections/glsl-hills-hero/demo.tsx",
     "hero-sections/glsl-hills-hero/ui/glsl-hills.tsx",

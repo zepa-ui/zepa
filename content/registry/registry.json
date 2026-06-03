@@ -4,6 +4,22 @@
   "homepage": "https://zepadesign.netlify.app",
   "items": [
     {
+      "slug": "dataanalytics-hero",
+      "title": "Data Analytics Hero",
+      "category": "hero-sections",
+      "description": "Dark hero with gradient glow, grain texture, mask-reveal headline, CTAs, and animated dashboard mockup.",
+      "github": "vij-sameerb5",
+      "tags": [
+        "hero",
+        "analytics",
+        "gradient",
+        "motion",
+        "landing",
+        "cta"
+      ],
+      "installUrl": "https://zepadesign.netlify.app/r/dataanalytics-hero.json"
+    },
+    {
       "slug": "glsl-hills-hero",
       "title": "GLSL Hills Hero",
       "category": "hero-sections",
