@@ -25,7 +25,7 @@ export function DemoStats({
   return (
     <div
       className={cn(
-        "absolute right-3 top-3 z-20 flex items-center gap-3 rounded-lg border border-white/10 bg-black px-2.5 py-1.5 text-xs text-white/60 shadow-lg",
+        "absolute right-3 top-3 z-50 flex items-center gap-3 rounded-lg border border-white/10 bg-black px-2.5 py-1.5 text-xs text-white/60 shadow-lg",
         className
       )}
     >
@@ -39,7 +39,7 @@ export function DemoStats({
       <button
         type="button"
         onClick={onLike}
-        disabled={liking || liked}
+        disabled={Boolean(liking || liked)}
         title={liked ? "Liked this session" : "Like this component"}
         className="flex items-center gap-1 tabular-nums transition hover:text-white disabled:opacity-50"
       >

@@ -11,13 +11,34 @@ export const registryLoaders: Record<
     demo: () => Promise<DemoModule>
   }
 > = {
+  "brutal-hero": {
+    demo: () => import("./hero-sections/brutal-hero/demo"),
+  },
+  "caledera": {
+    demo: () => import("./hero-sections/caledera/demo"),
+  },
   "dataanalytics-hero": {
     demo: () => import("./hero-sections/dataanalytics-hero/demo"),
+  },
+  "glean-hero": {
+    demo: () => import("./hero-sections/glean-hero/demo"),
   },
   "glsl-hills-hero": {
     demo: () => import("./hero-sections/glsl-hills-hero/demo"),
   },
+  "mainframe-hero": {
+    demo: () => import("./hero-sections/mainframe-hero/demo"),
+  },
   "new-hero": {
     demo: () => import("./hero-sections/new-hero/demo"),
+  },
+  "posterscroll-hero": {
+    demo: () => import("./hero-sections/posterscroll-hero/demo"),
+  },
+  "vault-hero": {
+    demo: () => import("./hero-sections/vault-hero/demo"),
+  },
+  "vercel-hero": {
+    demo: () => import("./hero-sections/vercel-hero/demo"),
   },
 }

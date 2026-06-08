@@ -17,6 +17,8 @@
   "dependencies": {
     "@radix-ui/react-slot": "^1.0.0",
     "@radix-ui/react-tabs": "^1.0.0",
+    "@react-three/drei": "^10.7.7",
+    "@react-three/fiber": "^9.6.1",
     "@types/three": "^0.184.1",
     "@vercel/analytics": "^2.0.1",
     "class-variance-authority": "^0.7.1",

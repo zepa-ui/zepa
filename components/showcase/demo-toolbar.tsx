@@ -72,7 +72,7 @@ export function DemoToolbar({
   return (
     <div
       className={cn(
-        "absolute left-3 top-3 z-20 flex items-center gap-0.5 rounded-lg border border-white/10 bg-black p-1 shadow-lg",
+        "absolute left-3 top-3 z-50 flex items-center gap-0.5 rounded-lg border border-white/10 bg-black p-1 shadow-lg",
         className
       )}
     >

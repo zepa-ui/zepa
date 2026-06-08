@@ -2,12 +2,28 @@
 // Run: npm run build:registry
 
 export const codePaths: Record<string, string[]> = {
+  "brutal-hero": [
+    "hero-sections/brutal-hero/demo.tsx",
+    "hero-sections/brutal-hero/ui/navbar.tsx",
+    "hero-sections/brutal-hero/ui/theme-toggle.tsx",
+    "hero-sections/brutal-hero/ui/workflow-diagram.tsx",
+  ],
+  "caledera": [
+    "hero-sections/caledera/demo.tsx",
+  ],
   "dataanalytics-hero": [
     "hero-sections/dataanalytics-hero/demo.tsx",
+  ],
+  "glean-hero": [
+    "hero-sections/glean-hero/demo.tsx",
   ],
   "glsl-hills-hero": [
     "hero-sections/glsl-hills-hero/demo.tsx",
     "hero-sections/glsl-hills-hero/ui/glsl-hills.tsx",
+  ],
+  "mainframe-hero": [
+    "hero-sections/mainframe-hero/demo.tsx",
+    "hero-sections/mainframe-hero/useTypewriter.ts",
   ],
   "new-hero": [
     "hero-sections/new-hero/demo.tsx",
@@ -15,5 +31,17 @@ export const codePaths: Record<string, string[]> = {
     "hero-sections/new-hero/ui/button.tsx",
     "hero-sections/new-hero/ui/glow.tsx",
     "hero-sections/new-hero/ui/mockup.tsx",
+  ],
+  "posterscroll-hero": [
+    "hero-sections/posterscroll-hero/demo.tsx",
+    "hero-sections/posterscroll-hero/ui/peacock-logo.tsx",
+    "hero-sections/posterscroll-hero/ui/tmdb-api-key.ts",
+    "hero-sections/posterscroll-hero/ui/usePeacockScene.ts",
+  ],
+  "vault-hero": [
+    "hero-sections/vault-hero/demo.tsx",
+  ],
+  "vercel-hero": [
+    "hero-sections/vercel-hero/demo.tsx",
   ],
 }
