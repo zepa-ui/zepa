@@ -4,6 +4,39 @@
   "homepage": "https://zepadesign.netlify.app",
   "items": [
     {
+      "slug": "brutal-hero",
+      "title": "Brutal Hero",
+      "category": "hero-sections",
+      "description": "Minimal brutalist hero with navbar, theme toggle, pixel-style headlines, animated SVG workflow diagram, and mono CTA button.",
+      "github": "vij-sameerb5",
+      "tags": [
+        "hero",
+        "brutalist",
+        "svg",
+        "motion",
+        "workflow",
+        "landing",
+        "cta"
+      ],
+      "installUrl": "https://zepadesign.netlify.app/r/brutal-hero.json"
+    },
+    {
+      "slug": "caledera",
+      "title": "Caldera Hero",
+      "category": "hero-sections",
+      "description": "Light marketing hero with navbar, clipped dual-panel video mask, Oswald headline, and bottom-right CTA. Uses scoped color tokens and a remote Framer video URL.",
+      "github": "vij-sameerb5",
+      "tags": [
+        "hero",
+        "landing",
+        "marketing",
+        "video",
+        "blockchain",
+        "cta"
+      ],
+      "installUrl": "https://zepadesign.netlify.app/r/caledera.json"
+    },
+    {
       "slug": "dataanalytics-hero",
       "title": "Data Analytics Hero",
       "category": "hero-sections",
@@ -18,6 +51,22 @@
         "cta"
       ],
       "installUrl": "https://zepadesign.netlify.app/r/dataanalytics-hero.json"
+    },
+    {
+      "slug": "glean-hero",
+      "title": "Glean Hero",
+      "category": "hero-sections",
+      "description": "Light marketing landing hero with scroll nav, mask-style sections, two-column cards, and product lifecycle grid. Uses scoped theme tokens and remote image URLs.",
+      "github": "vij-sameerb5",
+      "tags": [
+        "hero",
+        "landing",
+        "marketing",
+        "scroll",
+        "cta",
+        "light"
+      ],
+      "installUrl": "https://zepadesign.netlify.app/r/glean-hero.json"
     },
     {
       "slug": "glsl-hills-hero",
@@ -35,6 +84,22 @@
       "installUrl": "https://zepadesign.netlify.app/r/glsl-hills-hero.json"
     },
     {
+      "slug": "mainframe-hero",
+      "title": "Mainframe Hero",
+      "category": "hero-sections",
+      "description": "Interactive hero with mouse-scrubbed background video, typewriter headline, pill CTAs, and mobile menu. Includes useTypewriter hook.",
+      "github": "vij-sameerb5",
+      "tags": [
+        "hero",
+        "video",
+        "typewriter",
+        "interactive",
+        "landing",
+        "cta"
+      ],
+      "installUrl": "https://zepadesign.netlify.app/r/mainframe-hero.json"
+    },
+    {
       "slug": "new-hero",
       "title": "New Hero",
       "category": "hero-sections",
@@ -48,6 +113,56 @@
         "mockup"
       ],
       "installUrl": "https://zepadesign.netlify.app/r/new-hero.json"
+    },
+    {
+      "slug": "posterscroll-hero",
+      "title": "Poster Scroll Hero",
+      "category": "hero-sections",
+      "description": "Peacock-style infinite 3D poster wall powered by Three.js and live TMDB movie/TV poster data. Scroll or let it auto-drift.",
+      "github": "vij-sameerb5",
+      "tags": [
+        "hero",
+        "threejs",
+        "webgl",
+        "tmdb",
+        "posters",
+        "scroll",
+        "streaming"
+      ],
+      "installUrl": "https://zepadesign.netlify.app/r/posterscroll-hero.json"
+    },
+    {
+      "slug": "vault-hero",
+      "title": "Vault Hero",
+      "category": "hero-sections",
+      "description": "Password-manager marketing hero with background video, framer-motion entrance animations, lucide icons, and mobile slide-out menu.",
+      "github": "vij-sameerb5",
+      "tags": [
+        "hero",
+        "security",
+        "video",
+        "motion",
+        "landing",
+        "cta"
+      ],
+      "installUrl": "https://zepadesign.netlify.app/r/vault-hero.json"
+    },
+    {
+      "slug": "vercel-hero",
+      "title": "Vercel Hero",
+      "category": "hero-sections",
+      "description": "Dark 3D grid hero with react-three-fiber: animated boxes on an infinite grid and centered CTA copy.",
+      "github": "vij-sameerb5",
+      "tags": [
+        "hero",
+        "threejs",
+        "3d",
+        "grid",
+        "webgl",
+        "landing",
+        "cta"
+      ],
+      "installUrl": "https://zepadesign.netlify.app/r/vercel-hero.json"
     }
   ]
 }

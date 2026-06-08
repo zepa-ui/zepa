@@ -43,20 +43,31 @@ export function ComponentDemo({
           : "border-white/10 bg-zinc-950/60"
       )}
     >
-      <DemoToolbar
-        slug={slug}
-        theme={theme}
-        onThemeChange={setTheme}
-        onRefresh={() => setRefreshKey((key) => key + 1)}
-        showOpenInNewTab={showOpenInNewTab}
-      />
+      {/* Reserved strip so absolute toolbar/stats sit above the demo (not under hero z-30) */}
+      <div className="relative z-50 h-14 shrink-0 pointer-events-none">
+        <DemoToolbar
+          slug={slug}
+          theme={theme}
+          onThemeChange={setTheme}
+          onRefresh={() => setRefreshKey((key) => key + 1)}
+          showOpenInNewTab={showOpenInNewTab}
+          className="pointer-events-auto"
+        />
 
-      <DemoStats stats={stats} onLike={onLike} liking={liking} liked={liked} />
+        <DemoStats
+          stats={stats}
+          onLike={onLike}
+          liking={liking}
+          liked={liked}
+          className="pointer-events-auto"
+        />
+      </div>
 
       <div
+        data-theme={theme}
         className={cn(
-          "relative flex flex-1 flex-col overflow-hidden",
-          fullscreen ? "min-h-screen" : "min-h-[70vh]"
+          "relative z-0 flex min-h-0 flex-1 flex-col overflow-auto",
+          fullscreen ? "min-h-0" : "min-h-[calc(70vh-3.5rem)]"
         )}
       >
         <RegistryDemo slug={slug} refreshKey={refreshKey} />

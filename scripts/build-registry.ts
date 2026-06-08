@@ -83,7 +83,12 @@ async function collectTsxFiles(
         continue
       }
 
-      if (entry.isFile() && entry.name.endsWith(".tsx") && entry.name !== "meta.ts") {
+      if (
+        entry.isFile() &&
+        entry.name !== "meta.ts" &&
+        (entry.name.endsWith(".tsx") ||
+          (entry.name.endsWith(".ts") && entry.name !== "meta.ts"))
+      ) {
         files.push(`${dirRelative}/${relative}`)
       }
     }

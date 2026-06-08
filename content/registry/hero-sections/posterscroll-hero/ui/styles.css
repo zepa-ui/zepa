@@ -1,0 +1,42 @@
+.posterscroll-hero {
+  width: 100%;
+  min-height: 100vh;
+  background: #000;
+}
+
+.posterscroll-root {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  background: #000;
+}
+
+.posterscroll-logo {
+  display: grid;
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.posterscroll-logo svg {
+  margin: auto;
+  width: min(62vw, 440px);
+  height: auto;
+  transform: translateY(-5vh);
+  filter: drop-shadow(0 10px 10px rgb(0 0 0 / 75%));
+}
+
+.posterscroll-posters {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.posterscroll-posters canvas {
+  margin: auto;
+  width: 100% !important;
+  height: auto !important;
+}

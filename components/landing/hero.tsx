@@ -30,7 +30,7 @@ export function Hero() {
     <section className="relative min-h-screen flex flex-col items-center justify-center px-4 pt-24 pb-16 overflow-hidden">
       {/* Background scene */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute inset-0 bg-zinc-950" />
+        <div className="absolute inset-0 bg-landing" />
         <div className="absolute inset-0 opacity-85 flex items-center justify-center">
           <UnicornScene
             projectId="tcG1K2JXES5pV3PGub42"
@@ -42,7 +42,7 @@ export function Hero() {
           />
         </div>
 
-        <div className="absolute inset-0 bg-gradient-to-b from-zinc-950/20 via-zinc-950/45 to-zinc-950" />
+        <div className="absolute inset-0 bg-gradient-to-b from-landing/20 via-landing/45 to-landing" />
       </div>
 
       {/* Subtle radial glow */}

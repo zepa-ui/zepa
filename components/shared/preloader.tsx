@@ -60,15 +60,8 @@ export function Preloader({ onComplete }: PreloaderProps) {
             duration: 1.4,
             ease: [0.22, 1, 0.36, 1],
           }}
-          className="fixed inset-0 z-[9999] flex items-center justify-center overflow-hidden bg-black"
+          className="fixed inset-0 z-[9999] flex items-center justify-center overflow-hidden bg-[#020202]"
         >
-          {/* Noise Overlay */}
-          <div className="noise-overlay absolute inset-0 opacity-30" />
-
-          {/* Glow Background */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.08),transparent_65%)]" />
-
-          {/* Video */}
           <motion.video
             autoPlay
             muted
@@ -91,9 +84,6 @@ export function Preloader({ onComplete }: PreloaderProps) {
           >
             <source src="/ss.mp4" type="video/mp4" />
           </motion.video>
-
-          {/* Bottom Fade */}
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black to-transparent" />
         </motion.div>
       )}
     </AnimatePresence>

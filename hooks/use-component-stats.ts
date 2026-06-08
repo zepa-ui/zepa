@@ -1,6 +1,12 @@
 "use client"
 
-import { useCallback, useEffect, useRef, useState } from "react"
+import {
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  useSyncExternalStore,
+} from "react"
 
 import type { ComponentStats } from "@/lib/stats/types"
 
@@ -13,6 +19,19 @@ function readLikedFromSession(slug: string) {
     return false
   }
   return sessionStorage.getItem(likeSessionKey(slug)) === "1"
+}
+
+const likedListeners = new Set<() => void>()
+
+function subscribeLiked(onStoreChange: () => void) {
+  likedListeners.add(onStoreChange)
+  return () => {
+    likedListeners.delete(onStoreChange)
+  }
+}
+
+function emitLikedChange() {
+  likedListeners.forEach((listener) => listener())
 }
 
 function isPageReload() {
@@ -40,8 +59,18 @@ export function useComponentStats(
   const trackViewOnReload = options?.trackViewOnReload ?? false
   const [stats, setStats] = useState<ComponentStats>(initialStats)
   const [liking, setLiking] = useState(false)
-  const liked = readLikedFromSession(slug)
   const viewRecorded = useRef(false)
+
+  const getLikedSnapshot = useCallback(
+    () => readLikedFromSession(slug),
+    [slug]
+  )
+
+  const liked = useSyncExternalStore(
+    subscribeLiked,
+    getLikedSnapshot,
+    () => false
+  )
 
   const refreshStats = useCallback(async () => {
     const response = await fetch(`/api/stats/${slug}`)
@@ -68,7 +97,7 @@ export function useComponentStats(
   }, [slug, trackViewOnReload, refreshStats])
 
   const like = useCallback(async () => {
-    if (readLikedFromSession(slug)) {
+    if (liked) {
       return
     }
 
@@ -78,11 +107,12 @@ export function useComponentStats(
       if (response.ok) {
         setStats((await response.json()) as ComponentStats)
         sessionStorage.setItem(likeSessionKey(slug), "1")
+        emitLikedChange()
       }
     } finally {
       setLiking(false)
     }
-  }, [slug])
+  }, [slug, liked])
 
   const recordInstall = useCallback(async () => {
     const response = await fetch(`/api/install/${slug}`, { method: "POST" })
