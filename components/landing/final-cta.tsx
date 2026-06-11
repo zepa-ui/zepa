@@ -10,7 +10,7 @@ export function FinalCTA() {
   const isInView = useInView(ref, { once: true, margin: "-100px" })
 
   return (
-    <section className="py-24 px-4">
+    <section className="px-4 pt-24 pb-8">
       <motion.div
         ref={ref}
         initial={{ opacity: 0, y: 40 }}
@@ -25,7 +25,7 @@ export function FinalCTA() {
           Ready to ship faster?
         </h2>
         <p className="text-lg sm:text-xl text-zinc-400 mb-10 max-w-2xl mx-auto">
-          Join thousands of teams already building with Apex. Start free, no credit card required.
+          Join thousands of components already built with zepa. start free, no credit card  no fees required.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

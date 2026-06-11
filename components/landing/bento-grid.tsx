@@ -25,11 +25,11 @@ const itemVariants: Variants = {
   },
 }
 
-const systemMetrics = [
-  { label: "CPU", value: 68 },
-  { label: "Memory", value: 74 },
-  { label: "Network", value: 61 },
-  { label: "Storage", value: 83 },
+const componentStats = [
+  { label: "Components", value: "50+" },
+  { label: "Heroes", value: "10+" },
+  { label: "Navbars", value: "8+" },
+  { label: "Sections", value: "3+" },
 ]
 
 function SystemStatus() {
@@ -138,10 +138,11 @@ export function BentoGrid() {
             className="text-3xl sm:text-4xl font-bold text-white mb-4"
             style={{ fontFamily: "var(--font-manrope), sans-serif" }}
           >
-            Everything you need to ship
+            Build interfaces people remember.
           </h2>
           <p className="text-zinc-400 max-w-2xl mx-auto">
-            Built for modern teams. Powerful features that help you build, deploy, and scale faster than ever.
+            A growing library of UI components for real products — heroes, navbars, feature sections,
+            CTAs, and more. Copy the code, customize freely, and drop it straight into your project.
           </p>
         </motion.div>
 
@@ -162,17 +163,18 @@ export function BentoGrid() {
                 <div className="p-2 rounded-lg bg-zinc-800 w-fit mb-4">
                   <Activity className="w-5 h-5 text-zinc-400" strokeWidth={1.5} />
                 </div>
-                <h3 className="text-xl font-semibold text-white mb-2">Real-time Monitoring</h3>
+                <h3 className="text-xl font-semibold text-white mb-2">UI Components</h3>
                 <p className="text-zinc-400 text-sm">
-                  Track system health, performance metrics, and alerts in real-time across all your deployments.
+                  Heroes, navbars, landing blocks, and interactive sections — production-ready React
+                  UI you can copy and use as your own.
                 </p>
               </div>
               <SystemStatus />
             </div>
             <div className="grid grid-cols-4 gap-4">
-              {systemMetrics.map((metric) => (
+              {componentStats.map((metric) => (
                 <div key={metric.label} className="text-center">
-                  <div className="text-2xl font-bold text-white mb-1">{metric.value}%</div>
+                  <div className="text-2xl font-bold text-white mb-1">{metric.value}</div>
                   <div className="text-xs text-zinc-500">{metric.label}</div>
                 </div>
               ))}
@@ -187,8 +189,10 @@ export function BentoGrid() {
             <div className="p-2 rounded-lg bg-zinc-800 w-fit mb-4">
               <Command className="w-5 h-5 text-zinc-400" strokeWidth={1.5} />
             </div>
-            <h3 className="text-lg font-semibold text-white mb-2">Command Palette</h3>
-            <p className="text-zinc-400 text-sm mb-6">Navigate anywhere instantly with powerful keyboard shortcuts.</p>
+            <h3 className="text-lg font-semibold text-white mb-2">Copy the Code</h3>
+            <p className="text-zinc-400 text-sm mb-6">
+              Integrate components directly into your project. Copy, paste, and ship.
+            </p>
             <KeyboardCommand />
           </motion.div>
 
@@ -200,8 +204,10 @@ export function BentoGrid() {
             <div className="p-2 rounded-lg bg-zinc-800 w-fit mb-4">
               <BarChart3 className="w-5 h-5 text-zinc-400" strokeWidth={1.5} />
             </div>
-            <h3 className="text-lg font-semibold text-white mb-2">Analytics</h3>
-            <p className="text-zinc-400 text-sm mb-4">Deep insights into your application performance.</p>
+            <h3 className="text-lg font-semibold text-white mb-2">Live Previews</h3>
+            <p className="text-zinc-400 text-sm mb-4">
+              Interactive experiences, not just static snippets. Preview before you copy.
+            </p>
             <AnimatedChart />
           </motion.div>
 
@@ -213,13 +219,13 @@ export function BentoGrid() {
             <div className="p-2 rounded-lg bg-zinc-800 w-fit mb-4">
               <Zap className="w-5 h-5 text-zinc-400" strokeWidth={1.5} />
             </div>
-            <h3 className="text-lg font-semibold text-white mb-2">Blazing Fast</h3>
+            <h3 className="text-lg font-semibold text-white mb-2">Ship in Minutes</h3>
             <p className="text-zinc-400 text-sm mb-4">
-              Edge-optimized infrastructure for sub-50ms response times globally.
+              Build stunning interfaces in minutes, not days. No setup headache.
             </p>
             <div className="flex items-center gap-2 text-emerald-500 text-sm">
-              <span className="font-mono">~32ms</span>
-              <span className="text-zinc-500">avg response</span>
+              <span className="font-mono">&lt;5min</span>
+              <span className="text-zinc-500">to integrate</span>
             </div>
           </motion.div>
 
@@ -231,12 +237,15 @@ export function BentoGrid() {
             <div className="p-2 rounded-lg bg-zinc-800 w-fit mb-4">
               <Shield className="w-5 h-5 text-zinc-400" strokeWidth={1.5} />
             </div>
-            <h3 className="text-lg font-semibold text-white mb-2">Enterprise Security</h3>
-            <p className="text-zinc-400 text-sm mb-4">SOC2 compliant with end-to-end encryption and SSO support.</p>
+            <h3 className="text-lg font-semibold text-white mb-2">Production Ready</h3>
+            <p className="text-zinc-400 text-sm mb-4">
+              Handcrafted React components with motion built in. Designed for developers who care about
+              details.
+            </p>
             <div className="flex items-center gap-2">
-              <span className="px-2 py-1 text-xs bg-zinc-800 rounded text-zinc-400">SOC2</span>
-              <span className="px-2 py-1 text-xs bg-zinc-800 rounded text-zinc-400">GDPR</span>
-              <span className="px-2 py-1 text-xs bg-zinc-800 rounded text-zinc-400">HIPAA</span>
+              <span className="px-2 py-1 text-xs bg-zinc-800 rounded text-zinc-400">React</span>
+              <span className="px-2 py-1 text-xs bg-zinc-800 rounded text-zinc-400">Next.js</span>
+              <span className="px-2 py-1 text-xs bg-zinc-800 rounded text-zinc-400">Motion</span>
             </div>
           </motion.div>
         </motion.div>
