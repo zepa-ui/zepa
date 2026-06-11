@@ -354,6 +354,7 @@ html.preloading .noise-overlay {
   --border: oklch(0.85 0 0);
 }
 
+/* Brutal hero dot-grid background (uses --background / --foreground tokens) */
 .dot-grid-bg {
   background-color: var(--background);
   background-image: radial-gradient(
